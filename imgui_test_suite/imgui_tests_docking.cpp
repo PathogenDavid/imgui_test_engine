@@ -2225,6 +2225,7 @@ void RegisterTests_Docking(ImGuiTestEngine* e)
     t = IM_REGISTER_TEST(e, "docking", "docking_dockspace_copy_no_remap");
     t->GuiFunc = [](ImGuiTestContext* ctx)
     {
+        ImGui::SetNextWindowSize({ 600.f, 300.f });
         ImGui::Begin("Window0", nullptr, ImGuiWindowFlags_NoSavedSettings);
         ImGuiID id0 = ImGui::GetID("DockSpace0");
         ImGuiID id1 = ImGui::GetID("DockSpace1");
@@ -2240,8 +2241,8 @@ void RegisterTests_Docking(ImGuiTestEngine* e)
         ImGui::DockSpace(id1, { 300.f, 300.f });
         ImGui::End();
 
+        ImGui::SetNextWindowSize({ 100.f, 100.f });
         ImGui::Begin("Window1", nullptr, ImGuiWindowFlags_NoSavedSettings);
-        ImGui::Text("Lorem ipsum");
         ImGui::End();
     };
     t->TestFunc = [](ImGuiTestContext* ctx)
